@@ -1,7 +1,12 @@
 # 1. Programming Language / Compiler
 
 - 자바에서 public, protected, private 키워드가 있는데 아무것도 안 쓸 경우 default로 적용되는 범위는?
+    - default로 잡은 경우, 같은 package 내의 클래스들이 접근할 수 있다.
 - Static typing과 dynamic typing의 차이점은? C++/JAVA은 어떤 typing을 사용하는가?
+    - static typing과 dynamic typing은 변수의 타입이 결정되는 시점을 기준으로 나뉘어진다. 
+    변수의 타입이 컴파일 시점에서 결정되는 경우 static typing이라고 한다. 변수의 타입이 런타임
+    시간에 결정된다면 dynamic typing이라고 한다.
+    - C++/Java에서는 static typing을 사용한다.
 - C++에서 서로 다른 타입의 오브젝트를 가리키는 포인터를 사용할 수 있나?
 - 전역 변수 사용의 장단점은?
 - 프로그램 실행 전 컴파일 시에 타입과 같은 프로그램의 정적 성질을 검사하는 프로 그래밍 언어와 그렇지 않은 프로그래밍 언어를 비교하시오.
