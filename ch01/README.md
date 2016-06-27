@@ -15,13 +15,17 @@
 - Recursive-descent 방식에서 백트래킹이 일어나지 않게 하려면 어떻게 해야 하는가?
 - A grammar G generating language L is defined by:
 - Consider the following grammar, with start symbol E:
-    E -> E*E | E/E
-    | E+E
-    | E–E
-    | (E)
-    | a|b|c|d|e|f.....x|y|z
+```
+E -> E*E | E/E
+| E+E
+| E–E
+| (E)
+| a|b|c|d|e|f.....x|y|z
+```
 The following strings are legal derivations from this grammar:
-    I. a*b+c
-    II. (a–b)*c  
-    III. a / ( b – c)
+```
+I. a * b + c
+II. (a – b) * c
+III. a / (b – c)
+```
 Which of the above are rightmost sentential forms?  
