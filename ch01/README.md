@@ -34,11 +34,41 @@
 -  파라미터 패싱 방식에는 eager evaluation 방식과 lazy evaluation 방식이 있다. 두 방식
  의 차이점을 비교 설명하세요. call-by-value와 call-by-name 파라미터 패싱 방식은 각
  각 어느 방식에 속하는지 구분하세요.
-- 언어를 분류하는 데 있어서는 해당 언어를 생성하는 Production 룰의 형태에 가해지 는 제약 사항을 가지고 분류하는 것이 일반적이다. Context Sensitive Language, Context Free Language, Regular Language를 생성하는 데 사용되는 Production 룰의 형태에 대해서 그 차이점을 비교 설명하세요.
+    - eagar evaluation을 사용하면, 수식의 값은 변수에 접근할 때 바로 계산이 된다. 계산되지
+    않은 수식을 표현하는 중간 자료 구조를 생성하고 관리할 필요가 없다. 따라서, 메모리와 속도에서
+    이득을 얻는다. lazy evaluation은 수식을 계산한 값이 필요할 때까지 계산을 늦추는 기법이다.
+    이 기법에서는 필요없는 계산을 하지 않으므로 프로그램 전체의 실행을 더 빠르게 할 수 있다.
+    - call-by-value은 eager evaluation에 속한다. call-by-name은 lazy evaluation에 속한다.
+    call-by-name에서는 한 argument가 사용되지 않으면 evaluate되지 않고, 여러 번 사용되면
+    여러 번 evaluate된다. 반면, call-by-value를 하면 일단 argument가 evaluate되고,
+    그 뒤로 그 argument를 사용하더라도 evaluate를 다시 하지는 않는다.   
+- 언어를 분류하는 데 있어서는 해당 언어를 생성하는 Production 룰의 형태에 가해지는 제약 사항을
+ 가지고 분류하는 것이 일반적이다. Context Sensitive Language, Context Free Language,
+ Regular Language를 생성하는 데 사용되는 Production 룰의 형태에 대해서 그 차이점을 비교 설명하세요.
+    - Context Sensitive Language: aAb -> acb (c=/=ε)
+    - Context Free Language: A->β1|β2 (nonterminal -> terminal)
+    - Regular Language: B->a|aC|ε(right regular) or B->a|Ca|ε(left regular)
 - Let L be a regular language. Prove that R(L), strings in L reversed, is also a regular language.
+    - R(L)을 받아들이는 finite automata가 있음을 보이면 된다.
+        - L을 받아들이는 finite automata에 대해서 모든 링크의 방향을 역방향으로 바꾼다. 
+        - 새로운 상태 q~s~ 를 추가한다.
+        - 모든 final state에서 ε으로 그 상태 q~s~로 갈 수 있는 링크들을 만든다.
+        - 모든 final state들을 normal state로 바꾼다.
+        - initial state를 final state로 바꾼다.
+        - 상태 q~s~를 initial state로 둔다. 
 - LR 파싱이란? Parsing Table의 역할은? 핸들이란? 핸들의 가장 중요한 특징은?
+    - LR파싱은 bottom-up방식으로 파싱하는 중 하나이며, right derivation을 기준으로 
+    input string을 추적해나가는 것이다. parsing table은 각 state에서 각 input을
+    만났을 때, 어떤 state로 가는지 명세해놓은 표이다. 
+    - 핸들: string in the right sentential form + production
+    - 파스 과정에서 다음으로 올 핸들을 결정하는 것이 LR파싱을 하는 주요 업무이다.
 - 파싱에서 bottom-up 방식과 top-down 방식의 차이점은?
+    - bottom-up은 detail을 먼저 살피는 것이고, top-down은 큰 그림을 먼저 보는 것이다.
+    bottom-up 방식에서는 인풋 스트링의 가장 왼쪽부터 하나하나 살피면서, reduce를
+    하는 과정을 거친다. 하지만, top-down 방식은 제일 처음 전체 스트링을 초기 상태로 잡고,
+    terminal부분과 non-terminal부분으로 쪼개어 나가는 방식으로 파싱을 한다. 
 - Recursive-descent 방식에서 백트래킹이 일어나지 않게 하려면 어떻게 해야 하는가?
+    - 잘 모르겠네요 ㅠㅠ. left recursion removal?
 - A grammar G generating language L is defined by:
 - Consider the following grammar, with start symbol E:
 ```
