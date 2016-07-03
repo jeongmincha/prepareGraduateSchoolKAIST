@@ -68,7 +68,13 @@
     하는 과정을 거친다. 하지만, top-down 방식은 제일 처음 전체 스트링을 초기 상태로 잡고,
     terminal부분과 non-terminal부분으로 쪼개어 나가는 방식으로 파싱을 한다. 
 - Recursive-descent 방식에서 백트래킹이 일어나지 않게 하려면 어떻게 해야 하는가?
-    - 잘 모르겠네요 ㅠㅠ. left recursion removal?
+    - predictive parsing을 해야 한다. 백트래킹이란 것은 prodution rule을 선택
+    해야 하는 시점에서 일단 선택을 했다가 잘못된 선택이면 다시 원래 상태로 되돌아오는 것인데,
+    미리 어떤 production rule을 선택해야 하는 지 예측하면서 파싱을 하면 백트래킹이
+    발생하지 않는다. 이런 것을 바로 predictive parsing이라고 한다.
+    predictive parsing을 하기 위해서는 look-ahead pointer를 사용한다. LL(k)
+    파서는 parsing table에 각 entry에 존재하는 production rule이 최대 1개이기
+    때문에 선택에 있어서 모호성이 제거된다. 
 - A grammar G generating language L is defined by:
 - Consider the following grammar, with start symbol E:
 ```
