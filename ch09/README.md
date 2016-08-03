@@ -1,4 +1,4 @@
-# 4. Algorithms
+# 9. Algorithms
 
 1. Sorting algorithm 들에는 어떤 것들이 있는가? Insertion sort, heap sort,
 selection sort, quick sort 중 optimal 한 것과 optimal 하지 않은 알고리즘은? 그 이유는?
